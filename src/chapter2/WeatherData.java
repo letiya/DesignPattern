@@ -1,21 +1,21 @@
 package chapter2;
 
-import java.util.ArrayList;
+import java.util.Observable;
 
-public class WeatherData implements Subject {
-
-	private ArrayList<Observer> observers; // To hold observer objects.
+public class WeatherData extends Observable {
+	
 	private float temp;
 	private float humidity;
 	private float pressure;
 	
 	public WeatherData() {
-		observers = new ArrayList<Observer>();
+		
 	}
 	
 	// Notify observer objects when we get updated measurements from the weather station.
 	public void measurementsChanged() {
-		notifyObserver();
+		setChanged(); // We now first call setChanged() to indicate the state has changed before calling notifyObservers().
+		notifyObservers(); // Notice we aren’t sending a data object with the notifyObservers() call. That means we’re using the PULL model
 	}
 	
 	public void setMeasurements(float temp, float humidity, float pressure) {
@@ -25,24 +25,16 @@ public class WeatherData implements Subject {
 		measurementsChanged();
 	}
 	
-	@Override
-	public void registerObserver(Observer o) {
-		observers.add(o);
+	public float getTemperature() {
+		return temp;
 	}
 
-	@Override
-	public void removeObserver(Observer o) {
-		int index = observers.indexOf(o);
-		if (index >= 0) {
-			observers.remove(index);
-		}
+	public float getHumidity() {
+		return humidity;
 	}
-
-	@Override
-	public void notifyObserver() {
-		for (Observer observer : observers) {
-			observer.update(temp, humidity, pressure);
-		}
+	
+	public float getPressure() {
+		return pressure;
 	}
-
+	
 }
