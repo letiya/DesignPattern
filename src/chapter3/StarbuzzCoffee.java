@@ -4,9 +4,11 @@ public class StarbuzzCoffee {
 	
 	public static void main(String[] args) {
 		Beverage beverage = new Espresso();
+		beverage.setSize(Beverage.TALL);
 		System.out.println(beverage.getDescription() + " $" + beverage.cost());
 		
 		Beverage beverage2 = new HouseBlend();
+		beverage2.setSize(Beverage.VENTI);
 		// Make a double mocha.
 		beverage2 = new Mocha(beverage2);
 		beverage2 = new Mocha(beverage2);

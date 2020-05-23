@@ -8,7 +8,20 @@ public class HouseBlend extends Beverage {
 
 	@Override
 	public double cost() {
-		return 0.89; // Price of the House Blend Coffee = $0.89
+		double cost = 0;
+		if (getSize() == Beverage.TALL) {
+			cost += 1.89; // House Blend Coffee with size TALL
+		} else if (getSize() == Beverage.GRANDE) {
+			cost += 2.89; // House Blend Coffee with size GRANDE
+		} else if (getSize() == Beverage.VENTI) {
+			cost += 3.99; // House Blend Coffee with size VENTI
+		}
+		return cost; // Price of the House Blend Coffee.
 	}
-
+	
+	@Override
+	public int getSize() {
+		return beverageSize;
+	}
+	
 }

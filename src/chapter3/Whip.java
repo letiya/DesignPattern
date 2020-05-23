@@ -15,7 +15,20 @@ public class Whip extends CondimentDecorator {
 
 	@Override
 	public double cost() {
-		return 0.1 + beverage.cost(); // Whip + wrapped beverage
+		double cost = beverage.cost(); // wrapped beverage
+		if (getSize() == Beverage.TALL) {
+			cost += 0.1; // Whip with size TALL
+		} else if (getSize() == Beverage.GRANDE) {
+			cost += 0.15; // Whip with size GRANDE
+		} else if (getSize() == Beverage.VENTI) {
+			cost += 0.2; // Whip with size VENTI
+		}
+		return cost;
+	}
+	
+	@Override
+	public int getSize() {
+		return beverage.getSize();
 	}
 
 }
