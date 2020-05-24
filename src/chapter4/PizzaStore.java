@@ -2,18 +2,14 @@ package chapter4;
 
 public class PizzaStore {
 	
+	private SimplePizzaFactory factory;
+	
+	public PizzaStore(SimplePizzaFactory factory) {
+		this.factory = new SimplePizzaFactory();
+	}
+	
 	public Pizza orderPizza(String type) {
-		Pizza pizza;
-		
-		switch (type) {
-			case "cheese":
-				pizza = new CheesePizza();
-				break;
-			case "veggie":
-				pizza = new VeggiePizza();
-			default:
-				pizza = null;
-		}
+		Pizza pizza = SimplePizzaFactory.createPizza(type);
 		
 		pizza.prepare();
 		pizza.bake();
