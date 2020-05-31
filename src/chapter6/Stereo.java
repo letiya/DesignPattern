@@ -19,7 +19,7 @@ public class Stereo {
 	}
 	
 	public void setVolume(int num) {
-		System.out.println("Light is adjusting volumne...");
+		System.out.println("Stereo is adjusting volumne...");
 	}
 
 }
