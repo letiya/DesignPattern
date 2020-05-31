@@ -37,14 +37,20 @@ public class RemoteLoader {
 //		remoteControl.offButtonWasPushed(0);
 		
 		// Add a party mode
+		// Create all devices in their proper location. 
+		RemoteControlWithUndo remoteControlWithUndo = new RemoteControlWithUndo();
+		
 		Command[] partyOn = {livingRoomLightOn, garageDoorUp, stereoOnWithCDCommand};
 		Command[] partyOff = {livingRoomLightOff, garageDoorCloseCommand, stereoOffCommand};
 		MacroCommand partyOnMacro = new MacroCommand(partyOn);
 		MacroCommand partyOffMacro = new MacroCommand(partyOff);
 		
 		System.out.println("--- Pushing Macro On---");
-		remoteControl.setCommand(4, partyOnMacro, partyOffMacro);
-		remoteControl.onButtonWasPushed(4);
+		remoteControlWithUndo.setCommand(4, partyOnMacro, partyOffMacro);
+		remoteControlWithUndo.onButtonWasPushed(4);
+		
+		System.out.println("--- Undo pushing Macro On---");
+		remoteControlWithUndo.undoButtonWasPushed();
 		
 	}
 
