@@ -2,12 +2,12 @@ package chapter6;
 
 public class Stereo {
 	
-	private String state = "OFF"; // Set default to OFF.
+//	private String state = "OFF"; // Set default to OFF.
 	private int volumn = 0;
 	
-	public String getState() {
-		return state;
-	}
+//	public String getState() {
+//		return state;
+//	}
 	
 	public int getVolumn() {
 		return volumn;
@@ -18,12 +18,12 @@ public class Stereo {
 	}
 	
 	public void on() {
-		state = "ON";
+//		state = "ON";
 		System.out.println("Stereo is turing on...");
 	}
 	
 	public void off() {
-		state = "OFF";
+//		state = "OFF";
 		System.out.println("Stereo is turing off...");
 	}
 	

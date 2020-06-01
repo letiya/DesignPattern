@@ -3,7 +3,7 @@ package chapter6;
 public class LightOnCommand implements Command {
 
 	Light light;
-	String prevState = "";
+//	String prevState = "";
 	
 	public LightOnCommand(Light light) {
 		this.light = light;
@@ -11,19 +11,20 @@ public class LightOnCommand implements Command {
 	
 	@Override
 	public void execute() {
-		prevState = light.getState();
+//		prevState = light.getState();
 		light.on();
 	}
 
 	@Override
 	public void undo() {
-		switch (prevState) {
-			case "ON" :
-				light.on();
-				break;
-			case "OFF" :
-				light.off();
-				break;
-		}
+//		switch (prevState) {
+//			case "ON" :
+//				light.on();
+//				break;
+//			case "OFF" :
+//				light.off();
+//				break;
+//		}
+		light.off(); // Just do the opposite of execute()
 	}
 }

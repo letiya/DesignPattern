@@ -3,7 +3,7 @@ package chapter6;
 public class StereoOnWithCDCommand implements Command {
 	
 	Stereo stereo;
-	String prevState = "";
+//	String prevState = "";
 	int prevVolumn = 0;
 	
 	public StereoOnWithCDCommand(Stereo stereo) {
@@ -12,7 +12,7 @@ public class StereoOnWithCDCommand implements Command {
 
 	@Override
 	public void execute() {
-		prevState = stereo.getState();
+//		prevState = stereo.getState();
 		prevVolumn = stereo.getVolumn();
 		stereo.on();
 		stereo.setCD();
@@ -21,15 +21,15 @@ public class StereoOnWithCDCommand implements Command {
 
 	@Override
 	public void undo() {
-		switch (prevState) {
-			case "ON" :
-				stereo.on();
-				break;
-			case "OFF" :
-				stereo.off();
-				break;
-		}
-		
+//		switch (prevState) {
+//			case "ON" :
+//				stereo.on();
+//				break;
+//			case "OFF" :
+//				stereo.off();
+//				break;
+//		}
+		stereo.off(); // Just do the opposite of execute()
 		stereo.setVolume(prevVolumn);
 	}
 	

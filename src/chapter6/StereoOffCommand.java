@@ -3,7 +3,7 @@ package chapter6;
 public class StereoOffCommand implements Command {
 	
 	Stereo stereo;
-	String prevState = "";
+//	String prevState = "";
 	
 	public StereoOffCommand(Stereo stereo) {
 		this.stereo = stereo;
@@ -11,20 +11,21 @@ public class StereoOffCommand implements Command {
 
 	@Override
 	public void execute() {
-		prevState = stereo.getState();
+//		prevState = stereo.getState();
 		stereo.off();
 	}
 	
 	@Override
 	public void undo() {
-		switch (prevState) {
-			case "ON" :
-				stereo.on();
-				break;
-			case "OFF" :
-				stereo.off();
-				break;
-		}
+//		switch (prevState) {
+//			case "ON" :
+//				stereo.on();
+//				break;
+//			case "OFF" :
+//				stereo.off();
+//				break;
+//		}
+		stereo.on(); // Just do the opposite of execute()
 	}
 
 }

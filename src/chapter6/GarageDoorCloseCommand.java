@@ -3,7 +3,7 @@ package chapter6;
 public class GarageDoorCloseCommand implements Command {
 	
 	GarageDoor garageDoor;
-	String prevState = "";
+//	String prevState = "";
 	
 	public GarageDoorCloseCommand(GarageDoor garageDoor) {
 		this.garageDoor = garageDoor;
@@ -11,20 +11,21 @@ public class GarageDoorCloseCommand implements Command {
 
 	@Override
 	public void execute() {
-		prevState = garageDoor.getState();
+//		prevState = garageDoor.getState();
 		garageDoor.down();
 	}
 
 	@Override
 	public void undo() {
-		switch (prevState) {
-			case "UP" :
-				garageDoor.up();
-				break;
-			case "DOWN" :
-				garageDoor.down();
-				break;
-		}
+//		switch (prevState) {
+//			case "UP" :
+//				garageDoor.up();
+//				break;
+//			case "DOWN" :
+//				garageDoor.down();
+//				break;
+//		}
+		garageDoor.up(); // Just do the opposite of execute()
 	}
 
 }

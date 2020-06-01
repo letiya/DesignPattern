@@ -3,11 +3,11 @@ package chapter6;
 public class Light {
 	
 	String lightDesc;
-	private String state = "OFF"; // Set default to OFF.
+//	private String state = "OFF"; // Set default to OFF.
 	
-	public String getState() {
-		return state;
-	}
+//	public String getState() {
+//		return state;
+//	}
 	
 	public Light(String lightDesc) {
 		this.lightDesc = lightDesc;
@@ -15,12 +15,12 @@ public class Light {
 	}
 	
 	public void on() {
-		state = "ON";
+//		state = "ON";
 		System.out.println(lightDesc + " is turing on...");
 	}
 	
 	public void off() {
-		state = "OFF";
+//		state = "OFF";
 		System.out.println(lightDesc + " is turing off...");
 	}
 }
