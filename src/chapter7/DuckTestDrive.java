@@ -19,6 +19,11 @@ public class DuckTestDrive {
 		System.out.println("The turkeyAdapter says...");
 		turkeyAdapter.quack();
 		turkeyAdapter.fly();
+		
+		Turkey duckAdapter = new DuckAdapter(mallardDuck); 
+		System.out.println("The duckAdapter says...");
+		duckAdapter.gobble();
+		duckAdapter.fly();
 	}
 
 }
