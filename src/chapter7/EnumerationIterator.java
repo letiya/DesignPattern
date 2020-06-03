@@ -23,7 +23,7 @@ public class EnumerationIterator implements Iterator {
 	}
 	
 	public void remove() {
-		System.out.println("Iterator does not have remove()");
+		System.out.println("Enumeration does not have remove()");
 		throw new UnsupportedOperationException();
 	}
 
