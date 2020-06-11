@@ -4,10 +4,10 @@ import java.util.Iterator;;
 
 public class Waitress {
 	
-	private PancakeHouseMenu pancakeHouseMenu;
-	private DinerMenu dinerMenu;
+	private Menu pancakeHouseMenu;
+	private Menu dinerMenu;
 	
-	public Waitress(PancakeHouseMenu pancakeHouseMenu, DinerMenu dinerMenu) {
+	public Waitress(Menu pancakeHouseMenu, Menu dinerMenu) {
 		this.pancakeHouseMenu = pancakeHouseMenu;
 		this.dinerMenu = dinerMenu;
 	}

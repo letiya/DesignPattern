@@ -2,7 +2,7 @@ package chapter9;
 
 import java.util.Iterator;
 
-public class DinerMenu {
+public class DinerMenu implements Menu {
 
 	static final int MAX_ITEMS = 6;
 	int numberOfItems = 0;
@@ -27,6 +27,7 @@ public class DinerMenu {
 		}
 	}
 	
+	@Override
 	public Iterator createIterator() {
 		// Returning the Iterator interface. 
 		// The client doesn't need to know how the menuItems are maintained in the DinerMenu, nor does it need to know how DinerMenuIterator is implemented.

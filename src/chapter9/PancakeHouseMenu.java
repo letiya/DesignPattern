@@ -3,7 +3,7 @@ package chapter9;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class PancakeHouseMenu {
+public class PancakeHouseMenu implements Menu {
 	
 	private ArrayList menuItems;
 	
@@ -20,6 +20,7 @@ public class PancakeHouseMenu {
 		menuItems.add(menuItem);
 	}
 	
+	@Override
 	public Iterator createIterator() {
 		return menuItems.iterator();
 	}
