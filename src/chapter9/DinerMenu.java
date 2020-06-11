@@ -24,9 +24,12 @@ public class DinerMenu {
 			numberOfItems = numberOfItems + 1;
 		}
 	}
-		
-	public MenuItem[] getMenuItems() {
-		return menuItems;
+	
+	public Iterator createIterator() {
+		// Returning the Iterator interface. 
+		// The client doesn't need to know how the menuItems are maintained in the DinerMenu, nor does it need to know how DinerMenuIterator is implemented.
+		// It just needs to use the iterators to step through the items in the menu.
+		return new DinerMenuIterator(menuItems);
 	}
 	
 	// other menu methods here

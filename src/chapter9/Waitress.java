@@ -1,7 +1,5 @@
 package chapter9;
 
-import java.util.ArrayList;
-
 public class Waitress {
 	
 	private PancakeHouseMenu pancakeHouseMenu;
@@ -13,22 +11,22 @@ public class Waitress {
 	}
 
 	public void printMenu() {
-		ArrayList breakfastItems = pancakeHouseMenu.getMenuItems();
-		for (int i = 0; i < breakfastItems.size(); i++) {
-			MenuItem menuItem = (MenuItem) breakfastItems.get(i);
+		Iterator pancakeIterator = pancakeHouseMenu.createIterator();
+		System.out.println("MENU\n------------\n----BREAKFAST----");
+		printMenu(pancakeIterator);
+		
+		Iterator dinerIterator = dinerMenu.createIterator();
+		System.out.println("\n----LUNCH----");
+		printMenu(dinerIterator);
+	}
+	
+	private void printMenu(Iterator iterator) {
+		while (iterator.hasNext()) {
+			MenuItem menuItem = (MenuItem) iterator.next();
 			System.out.println(menuItem.getName() + " ");
 			System.out.println(menuItem.getPrice()+ " ");
 			System.out.println(menuItem.getDescription() + " ");
 		}
-		
-		MenuItem[] lunchItems = dinerMenu.getMenuItems();
-		for (int i = 0; i < lunchItems.length; i++) {
-			MenuItem menuItem = lunchItems[i];
-			System.out.println(menuItem.getName() + " ");
-			System.out.println(menuItem.getPrice()+ " ");
-			System.out.println(menuItem.getDescription() + " ");
-		}
-		
 	}
 	
 }
