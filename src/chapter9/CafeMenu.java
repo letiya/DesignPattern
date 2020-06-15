@@ -1,8 +1,9 @@
 package chapter9;
 
 import java.util.Hashtable;
+import java.util.Iterator;
 
-public class CafeMenu {
+public class CafeMenu implements Menu {
 	
 	Hashtable menuItems = new Hashtable();
 	
@@ -16,9 +17,10 @@ public class CafeMenu {
 		MenuItem menuItem = new MenuItem(name, description, vegetarian, price);
 		menuItems.put(menuItem.getName(), menuItem);
 	}
-	
-	public Hashtable getItems() {
-		return menuItems;
+
+	@Override
+	public Iterator createIterator() {
+		return menuItems.values().iterator();
 	}
 
 }
