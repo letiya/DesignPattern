@@ -1,31 +1,23 @@
 package chapter9;
 
+import java.util.ArrayList;
 import java.util.Iterator;;
 
 public class Waitress {
 	
-	private Menu pancakeHouseMenu;
-	private Menu dinerMenu;
-	private Menu cafeMenu;
+	private ArrayList menus;
 	
-	public Waitress(Menu pancakeHouseMenu, Menu dinerMenu, Menu cafeMenu) {
-		this.pancakeHouseMenu = pancakeHouseMenu;
-		this.dinerMenu = dinerMenu;
-		this.cafeMenu = cafeMenu;
+	public Waitress(ArrayList menus) {
+		this.menus = menus;
 	}
 
 	public void printMenu() {
-		Iterator pancakeIterator = pancakeHouseMenu.createIterator();
-		System.out.println("MENU\n------------\n----BREAKFAST----");
-		printMenu(pancakeIterator);
-		
-		Iterator dinerIterator = dinerMenu.createIterator();
-		System.out.println("\n----LUNCH----");
-		printMenu(dinerIterator);
-		
-		Iterator cafeIterator = cafeMenu.createIterator();
-		System.out.println("\n----DINNER----");
-		printMenu(cafeIterator);
+		Iterator menuIterator = menus.iterator();
+		while (menuIterator.hasNext()) {
+			Menu menu = (Menu) menuIterator.next();
+			System.out.println("=======================Print menu=======================");
+			printMenu(menu.createIterator());
+		}
 	}
 	
 	private void printMenu(Iterator iterator) {
