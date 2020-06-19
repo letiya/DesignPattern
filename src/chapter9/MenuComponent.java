@@ -1,5 +1,7 @@
 package chapter9;
 
+import java.util.Iterator;
+
 // We use abstract class(instead of interface) here so that we can provide default implementations for methods.
 public abstract class MenuComponent {
 	
@@ -36,6 +38,10 @@ public abstract class MenuComponent {
 	}
 	
 	public void print() {
+		throw new UnsupportedOperationException();
+	}
+	
+	public Iterator createIterator() {
 		throw new UnsupportedOperationException();
 	}
 	

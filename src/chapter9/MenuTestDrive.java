@@ -1,7 +1,5 @@
 package chapter9;
 
-import java.util.ArrayList;
-
 public class MenuTestDrive {
 
 	public static void main(String[] args) {
@@ -20,6 +18,11 @@ public class MenuTestDrive {
 		
 		// Version 2. Add a desert menu to diner menu
 		MenuComponent pancakeHouseMenu = new MenuClass("PANCAKE HOUSE MENU", "Breakfast");
+		pancakeHouseMenu.add(new MenuItem("K&B’s Pancake Breakfast", "Pancakes with scrambled eggs, and toast", true, 2.99));
+		pancakeHouseMenu.add(new MenuItem("Regular Pancake Breakfast", "Pancakes with fried eggs, sausage", false, 2.99));
+		pancakeHouseMenu.add(new MenuItem("Blueberry Pancakes", "Pancakes made with fresh blueberries", true, 3.49));
+		pancakeHouseMenu.add(new MenuItem("Waffles", "Waffles, with your choice of blueberries or strawberries", true, 3.59));
+		
 		MenuComponent dinerMenu = new MenuClass("DINER MENU", "Lunch");
 		MenuComponent cafeMenu = new MenuClass("CAFE MENU", "Dinner");
 		MenuComponent dessertMenu = new MenuClass("DESSERT MENU", "Dessert of course!");
@@ -36,7 +39,8 @@ public class MenuTestDrive {
 		allMenus.add(dessertMenu);
 		
 		Waitress waitress = new Waitress(allMenus);
-		waitress.printMenu();
+//		waitress.printMenu();
+		waitress.printVegetarianMenu();
 	}
 
 }

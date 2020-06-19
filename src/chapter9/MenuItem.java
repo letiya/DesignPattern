@@ -1,5 +1,7 @@
 package chapter9;
 
+import java.util.Iterator;
+
 public class MenuItem extends MenuComponent {
 	
 	private String name;
@@ -37,5 +39,11 @@ public class MenuItem extends MenuComponent {
 		}
 		System.out.println(", " + getPrice());
 		System.out.println("   -- " + getDescription());
+	}
+	
+	// Return an iterator that always returns false when hasNext() is called.
+	// Note, another option is to return 'null' but then we’d need conditional code in the client to see if null was returned or not.
+	public Iterator createIterator() {
+		return new NullIterator();
 	}
 }
