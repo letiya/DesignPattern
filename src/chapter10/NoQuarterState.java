@@ -1,10 +1,17 @@
 package chapter10;
 
 public class NoQuarterState implements State {
+	
+	private GumballMachine gumballMachine;
+	
+	public NoQuarterState(GumballMachine gumballMachine) {
+		this.gumballMachine = gumballMachine;
+	}
 
 	@Override
 	public void insertQuarter() {
 		System.out.println("You inserted a quarter");
+		gumballMachine.setState(gumballMachine.getHasQuarterState());
 	}
 
 	@Override
