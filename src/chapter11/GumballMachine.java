@@ -1,6 +1,10 @@
 package chapter11;
 
-public class GumballMachine {
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+
+// Subclass the UnicastRemoteObject; this gives it the ability to act as a remote service.
+public class GumballMachine extends UnicastRemoteObject implements GumballMachineRemote {
 	
 	private State soldOutState;
 	private State noQuarterState;
@@ -11,7 +15,9 @@ public class GumballMachine {
 	private State state;
 	private int count = 0;
 	
-	public GumballMachine(int numberGumballs) {
+	private String location;
+	
+	public GumballMachine(String location, int numberGumballs) throws RemoteException { // The constructor needs to throw a remote exception because the superclass does.
 		soldOutState = new SoldOutState(this);
 		noQuarterState = new NoQuarterState(this);
 		hasQuarterState = new HasQuarterState(this);
@@ -21,6 +27,7 @@ public class GumballMachine {
 		if (count > 0) {
 			state = noQuarterState;
 		}
+		this.location = location;
 	}
 	
 	public void getInfo() {
@@ -80,6 +87,16 @@ public class GumballMachine {
 	
 	public int getCount() {
 		return count;
+	}
+
+	@Override
+	public String getLocation() throws RemoteException {
+		return location;
+	}
+
+	@Override
+	public State getState() throws RemoteException {
+		return state;
 	}
 	
 }
