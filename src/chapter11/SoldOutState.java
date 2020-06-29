@@ -2,7 +2,7 @@ package chapter11;
 
 public class SoldOutState implements State {
 	
-	private GumballMachine gumballMachine;
+	private transient GumballMachine gumballMachine; // 'transient' keyword -> This tells the JVM not to serialize this field. Note that this can be slightly dangerous if you try to access this field once its been serialized and transferred.
 	
 	public SoldOutState(GumballMachine gumballMachine) {
 		this.gumballMachine = gumballMachine;

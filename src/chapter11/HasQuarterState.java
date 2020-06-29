@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class HasQuarterState implements State {
 	
-	private GumballMachine gumballMachine;
+	private transient GumballMachine gumballMachine; // 'transient' keyword -> This tells the JVM not to serialize this field. Note that this can be slightly dangerous if you try to access this field once its been serialized and transferred.
 	private Random randomWinner = new Random();
 	
 	public HasQuarterState(GumballMachine gumballMachine) {
