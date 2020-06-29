@@ -12,7 +12,7 @@ public class GumballMachineTestDrive {
 		try {
 			int count = Integer.parseInt(args[1]);
 			GumballMachineRemote gumballMachine = new GumballMachine(args[0], count);
-			Naming.rebind("//" + args[0] + "/gumballmachine", gumballMachine); // We also add the call to Naming.rebind, which publishes the GumballMachine stub under the name gumballmachine.
+			Naming.rebind("gumballmachine_" + args[0], gumballMachine); // We also add the call to Naming.rebind, which publishes the GumballMachine stub under the name gumballmachine.
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
